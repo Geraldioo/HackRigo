@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import { MdSearch } from 'react-icons/md';
+
 export default function Navbar() {
   return (
     <>
@@ -9,15 +12,23 @@ export default function Navbar() {
               className="h-5 ml-6"
             />
           </button>
+          <h1 className='ml-10 text-white font-extrabold text-xl'>Home</h1>
+          <h1 className='ml-8 text-white font-extrabold text-xl'>Products</h1>
+          <h1 className='ml-8 text-white font-extrabold text-xl'>Wishlist</h1>
         </div>
-        <div className="flex-none gap-2 mr-5">
-          <div className="form-control ">
-            <input
-              type="text"
-              placeholder="Search"
-              className="input input-bordered w-20 md:w-auto bg-white"
-            />
-          </div>
+        <div className="flex-none mr-5">
+          <form>
+            <div className="form-control relative">
+              <input
+                type="text"
+                placeholder="Search"
+                className="input input-bordered pl-5 w-20 md:w-auto bg-white"
+              />
+              <button type="submit" className="absolute inset-y-0 right-0 flex items-center pr-3">
+                <MdSearch size={24} />
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </>

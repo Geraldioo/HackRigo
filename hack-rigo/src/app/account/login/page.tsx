@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import React from "react";
 
@@ -58,7 +59,7 @@ function Login() {
                     />
                   </div>
                 </div>
-                <button className="cursor-pointer py-2 px-4 block mt-6 bg-[#50325E] hover:bg-[#6779BA] text-white font-bold w-full text-center rounded transition duration-500 ease-in-out">
+                <button className="cursor-pointer py-2 px-4 block mt-4 bg-[#50325E] hover:bg-[#6779BA] text-white font-bold w-full text-center rounded transition duration-500 ease-in-out">
                   Sign In
                 </button>
               </form>
@@ -134,13 +135,14 @@ function Login() {
                     className="w-full border border-gray-300 py-2 pl-3 rounded mt-2 outline-none bg-white text-black focus:ring-indigo-600 :ring-indigo-600"
                   />
                 </div>
-                <button className="cursor-pointer py-2 px-4 block mt-6 bg-[#50325E] hover:bg-[#6779BA] text-white font-bold w-full text-center rounded transition duration-500 ease-in-out">
+                <button className="cursor-pointer py-2 px-4 block mt-4 bg-[#50325E] hover:bg-[#6779BA] text-white font-bold w-full text-center rounded transition duration-500 ease-in-out">
                   Create An Account
                 </button>
               </form>
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     </>
   );

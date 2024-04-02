@@ -1,4 +1,5 @@
 import { Carousel } from "@/components/Carousel";
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
 
@@ -6,16 +7,23 @@ export default function Home() {
   return (
     <div className=" dark:bg-white w-full">
       <Navbar />
-      <div className="flex justify-center w-screen h-screen dark:bg-white">
+      <div className="flex justify-center h-screen">
         <Carousel />
       </div>
-      <div className="grid justify-center dark:bg-white grid-cols-3 mx-40 border-t border-black">
+      <div className="divider divider-neutral mx-40"></div>
+      <h1 className="uppercase text-center text-black text-lg font-extrabold">
+        New Arrivals
+      </h1>
+      <h1 className="link mt-2 text-center text-black text-xs">
+        View All Products
+      </h1>
+      <div className="grid justify-center dark:bg-white grid-cols-3 mx-40">
         <div className="card bg-whit shadow-xl mr-4">
           <figure className="pt-10 ">
             <img
               src="https://erigostore.co.id/cdn/shop/files/6afbc72719cce761ec852eb3e61bb163_720x.jpg?v=1684515011"
               alt="Shoes"
-              className="rounded-xl"
+              className="rounded-xl w-full transition-transform transform hover:scale-110"
             />
           </figure>
           <div className="card-body items-center text-center">
@@ -30,7 +38,7 @@ export default function Home() {
             <img
               src="https://erigostore.co.id/cdn/shop/products/T-Shirt-Oversize-BARENTS-PALE_720x.jpg?v=1666229929"
               alt="Shoes"
-              className="rounded-xl"
+              className="rounded-xl w-full transition-transform transform hover:scale-110"
             />
           </figure>
           <div className="card-body items-center text-center">
@@ -45,7 +53,7 @@ export default function Home() {
             <img
               src="https://erigostore.co.id/cdn/shop/files/88b4bb5226ace69e998fd67446bd0279_720x.jpg?v=1684515011"
               alt="Shoes"
-              className="rounded-xl"
+              className="rounded-xl w-full transition-transform transform hover:scale-110"
             />
           </figure>
           <div className="card-body items-center text-center">
@@ -60,7 +68,7 @@ export default function Home() {
             <img
               src="https://erigostore.co.id/cdn/shop/products/T-Shirt-Basic-Meghan-Black.jpg?v=1680747368"
               alt="Shoes"
-              className="rounded-xl"
+              className="rounded-xl w-full transition-transform transform hover:scale-110"
             />
           </figure>
           <div className="card-body items-center text-center">
@@ -75,7 +83,7 @@ export default function Home() {
             <img
               src="https://erigostore.co.id/cdn/shop/products/T-Shirt-Oversize-DAMPIER-BASIL-3_720x.jpg?v=1666230372"
               alt="Shoes"
-              className="rounded-xl"
+              className="rounded-xl w-full transition-transform transform hover:scale-110"
             />
           </figure>
           <div className="card-body items-center text-center">
@@ -86,6 +94,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
