@@ -55,36 +55,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="card bg-whit shadow-xl mr-4">
-          <figure className="pt-10 ">
-            <img
-              src="https://erigostore.co.id/cdn/shop/products/T-Shirt-Basic-Meghan-Black.jpg?v=1680747368"
-              alt="Shoes"
-              className="rounded-xl"
-            />
-          </figure>
-          <div className="card-body items-center text-center">
-            <p className="mb-5">Erigo T-Shirt Oversize Aliger Olive Unisex</p>
-            <div className="card-actions">
-              <button className="btn btn-primary">Buy Now</button>
-            </div>
-          </div>
-        </div>
-        <div className="card bg-whit shadow-xl mr-4">
-          <figure className="pt-10 ">
-            <img
-              src="https://erigostore.co.id/cdn/shop/products/T-Shirt-Oversize-DAMPIER-BASIL-3_720x.jpg?v=1666230372"
-              alt="Shoes"
-              className="rounded-xl"
-            />
-          </figure>
-          <div className="card-body items-center text-center">
-            <p className="mb-5">Erigo T-Shirt Oversize Barents Pale</p>
-            <div className="card-actions">
-              <button className="btn btn-primary">Buy Now</button>
-            </div>
-          </div>
-        </div>
+
       </div>
     </div>
   );

@@ -22,3 +22,5 @@ export const Carousel = () => {
     </div>
   );
 };
+
+// #A4B0DC
