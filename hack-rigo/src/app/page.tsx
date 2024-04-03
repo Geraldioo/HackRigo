@@ -93,6 +93,18 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <div className="divider divider-neutral mx-40 mt-16"></div>
+        <h1 className="uppercase text-center text-black text-2xl mb-10 font-extrabold">
+          About Us
+        </h1>
+      <div className="flex justify-center h-screen">
+        <div >
+          <img
+            src="https://cdn.shopify.com/s/files/1/0607/2841/0296/files/Erigo_Company_Profile_page-0002.jpg?v=1670683388"
+            alt="aboutUs"
+          />
+        </div>
+      </div>
     </div>
   );
 }
