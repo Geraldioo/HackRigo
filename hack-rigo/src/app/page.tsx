@@ -6,7 +6,6 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div className=" dark:bg-white w-full">
-      <Navbar />
       <div className="flex justify-center h-screen">
         <Carousel />
       </div>
@@ -94,7 +93,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

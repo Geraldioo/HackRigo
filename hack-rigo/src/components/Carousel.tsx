@@ -1,4 +1,5 @@
 export const Carousel = () => {
+  
   return (
     <div className="carousel carousel-center w-[80%] h-[90%] p-4 space-x-4 bg-white rounded-box ">
       <div className="carousel-item">

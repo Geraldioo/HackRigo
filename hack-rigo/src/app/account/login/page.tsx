@@ -5,7 +5,6 @@ import React from "react";
 function Login() {
   return (
     <>
-      <Navbar />
       <div className="bg-white">
         <div className="mx-20">
           <div>
@@ -142,7 +141,6 @@ function Login() {
             </div>
           </div>
         </div>
-        <Footer />
       </div>
     </>
   );
