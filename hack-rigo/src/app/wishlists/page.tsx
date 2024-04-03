@@ -1,4 +1,4 @@
-import Card from "@/components/Card";
+import CardWish from "@/components/CardWish";
 import Link from "next/link";
 
 export default function WishlistsPage() {
@@ -19,13 +19,14 @@ export default function WishlistsPage() {
             <div className="divider divider-neutral"></div>
           </div>
         </div>
-        <div className="grid justify-center dark:bg-white grid-cols-3 mx-40">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+        <div className="grid justify-center dark:bg-white grid-cols-3 mx-24">
+          <CardWish />
+          <CardWish />
+          <CardWish />
+          <CardWish />
+          <CardWish />
+          <CardWish />
+          <CardWish />
         </div>
       </div>
     </>

@@ -1,8 +1,7 @@
 export default function CardProducts() {
   return (
     <>
-      <div className="flex justify-center py-6 hover:rounded-md hover:shadow-xl">
-        <div className="">
+      <div className="flex justify-center py-6 hover:rounded-md hover:shadow-2xl">
           <div className="w-56">
             <img
               src="https://erigostore.co.id/cdn/shop/files/cb8b3733b43900716e3ad38627d6980b_720x.jpg?v=1684515022"
@@ -19,7 +18,6 @@ export default function CardProducts() {
             </div>
           </div>
         </div>
-      </div>
     </>
   );
 }

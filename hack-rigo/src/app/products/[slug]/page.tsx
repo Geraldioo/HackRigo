@@ -1,5 +1,3 @@
-import Navbar from "@/components/Navbar";
-
 export default function ProductDetailPage() {
   return (
     <>
@@ -10,6 +8,11 @@ export default function ProductDetailPage() {
               <img
                 alt="ecommerce"
                 className="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200"
+                src="https://erigostore.co.id/cdn/shop/files/cb8b3733b43900716e3ad38627d6980b.jpg?v=1684515022"
+              />
+              <img
+                alt="ecommerce"
+                className="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200 flex-col"
                 src="https://erigostore.co.id/cdn/shop/files/cb8b3733b43900716e3ad38627d6980b.jpg?v=1684515022"
               />
               <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
