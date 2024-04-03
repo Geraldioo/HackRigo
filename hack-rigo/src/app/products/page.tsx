@@ -2,31 +2,25 @@ import CardProducts from "@/components/CardProducts";
 import { Carousel } from "@/components/Carousel";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <>
       <div className="bg-white">
         {/* Collumn Sort By */}
-        <div className="flex flex-row h-10 justify-center font-thin text-base">
-          <div className="border flex-1 justify-center items-center flex">
-            Collections
-          </div>
-          <div className="border w-28 justify-center flex items-center dropdown dropdown-end">
-            <div tabIndex={0} className="text-slate-950" role="button">
-              {/* Sort By <ExpandMoreIcon/> */}
-            </div>
-            <ul
-              tabIndex={0}
-              className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
-            >
-              <li>
-                <a className="text-sm font-thin">new item</a>
-              </li>
-              <li>
-                <a className="text-sm font-thin">old item</a>
-              </li>
-            </ul>
+        <div className="mx-28">
+          <div>
+            <h1 className="text-md text-start pt-10">
+              <Link href="/">
+                <button>Home</button>
+              </Link>
+              <span> 〉Products </span>
+            </h1>
+            <h1 className="text-3xl font-medium text-black mb-2 text-start pt-14">
+              PRODUCTS
+            </h1>
+            <div className="divider divider-neutral"></div>
           </div>
         </div>
 
