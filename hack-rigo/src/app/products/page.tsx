@@ -8,8 +8,10 @@ const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 export default function Home() {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const fetchData = async () => {
+    setLoading(true);
     try {
       const response = await fetch(`${BASE_URL}/api/products`, {
         cache: "no-store",
@@ -21,13 +23,22 @@ export default function Home() {
       setProducts(responseJson.data);
     } catch (error: any) {
       console.log(error, "<< ERR DI PRODUCTS");
-      alert(error.message);
+    } finally {
+      setLoading(false);
     }
   };
 
   useEffect(() => {
     fetchData();
   }, []);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen bg-white">
+        <span className="loading loading-bars loading-lg"></span>
+      </div>
+    );
+  }
 
   return (
     <>

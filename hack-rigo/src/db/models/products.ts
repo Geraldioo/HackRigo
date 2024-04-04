@@ -28,7 +28,7 @@ export default class ProductModel {
 
   static async getFeaturedProducts() {
     const data = await this.getAllProducts()
-    const featured = data.slice(0, 5)
+    const featured = data.slice(0, 6)
     return featured;
   }
 }

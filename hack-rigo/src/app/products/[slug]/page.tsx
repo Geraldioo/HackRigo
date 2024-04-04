@@ -41,7 +41,6 @@ export default async function ProductDetailPage({
   params: { slug: string };
 }) {
   const product: { data: Product } = await fetchData(params.slug);
-  console.log(product, "<<< products");
 
   return (
     product && (
@@ -186,9 +185,12 @@ export default async function ProductDetailPage({
                       <span className="title-font font-medium text-xl text-red-600 ml-3">
                         Rp. {product.data.price}
                       </span>
-                        <Link href={"/products"} className="flex ml-auto text-white bg-[#50325E] hover:bg-[#6779BA]  border-0 py-2 px-6 focus:outline-nonerounded rounded transition duration-500 ease-in-out">
-                          Back
-                        </Link>
+                      <Link
+                        href={"/products"}
+                        className="flex ml-auto text-white bg-[#50325E] hover:bg-[#6779BA]  border-0 py-2 px-6 focus:outline-nonerounded rounded transition duration-500 ease-in-out"
+                      >
+                        Back
+                      </Link>
                       <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                         <svg
                           fill="currentColor"
