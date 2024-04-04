@@ -1,4 +1,4 @@
-import { Wishlist } from "@/db/types"
+import { Wishlist } from "@/api/types"
 import { database } from "../config/config";
 import { z } from "zod";
 
