@@ -1,5 +1,5 @@
-import { MongoClient, ServerApiVersion } from "mongodb";
-const uri = process.env.MONGO_DB_URI as string
+const { MongoClient, ServerApiVersion } = require ("mongodb");
+const uri = process.env.MONGO_DB_URI 
 const dbName = process.env.MONGO_DB_NAME || "GC_02"; 
 
 const client = new MongoClient(uri, {
@@ -10,4 +10,5 @@ const client = new MongoClient(uri, {
   },
 });
 
-export const database = client.db(dbName);
+const database = client.db(dbName);
+module.exports= database
