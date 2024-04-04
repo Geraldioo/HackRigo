@@ -1,5 +1,3 @@
-import { useState } from 'react';
-import { MdSearch } from 'react-icons/md';
 
 export default function Navbar() {
   return (
@@ -18,18 +16,6 @@ export default function Navbar() {
         </div>
         <div className="flex-none mr-5">
           <a href='/account/login' className='mr-10 text-white font-light text-md hover:underline'>Sign In or Create Account</a>
-          <form>
-            <div className="form-control relative">
-              <input
-                type="text"
-                placeholder="Search"
-                className="input input-bordered pl-5 w-20 md:w-auto bg-white"
-              />
-              <button type="submit" className="absolute inset-y-0 right-0 flex items-center pr-3">
-                <MdSearch size={24} />
-              </button>
-            </div>
-          </form>
         </div>
       </div>
     </>

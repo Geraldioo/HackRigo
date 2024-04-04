@@ -1,4 +1,4 @@
-import { User } from "@/api/types"
+import { User } from "@/db/types"
 import { database } from "../config/config";
 import { z } from "zod";
 

@@ -1,196 +1,76 @@
-// import Image from 'next/image'; // Import Image dari Next.js
 
-// export default function ProductDetailPage() {
-//   return (
-//     <>
-//       <div>
-//         <section className="text-gray-700 body-font overflow-hidden bg-white">
-//           <div className="container px-5 py-24 mx-auto">
-//             <div className="lg:w-4/5 mx-auto flex flex-wrap">
-//               <div className="lg:w-1/2 w-full lg:pr-10 lg:py-6 mt-6 lg:mt-0 relative">
-//                 <Image
-//                   alt="ecommerce"
-//                   src=""
-//                   layout="fill"
-//                   objectFit="contain"
-//                   className="rounded border border-gray-200"
-//                 />
-//               </div>
-//               <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-//                 {/* Content lain di sini */}
-//                 <div>
-//         <section className="text-gray-700 body-font overflow-hidden bg-white">
-//           <div className="container px-5 py-24 mx-auto">
-//             <div className="lg:w-4/5 mx-auto flex flex-wrap">
-//               <img
-//                 alt="ecommerce"
-//                 className="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200"
-//                 src="https://erigostore.co.id/cdn/shop/files/cb8b3733b43900716e3ad38627d6980b.jpg?v=1684515022"
-//               />
-//               <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-//                 <h2 className="text-sm title-font text-gray-500 tracking-widest">
-//                   ERIGO
-//                 </h2>
-//                 <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
-//                   Erigo T-Shirt Basic Olive White Unisex
-//                 </h1>
-//                 <div className="flex mb-4">
-//                   <span className="flex items-center">
-//                     <svg
-//                       fill="currentColor"
-//                       stroke="currentColor"
-//                       strokeLinecap="round"
-//                       strokeLinejoin="round"
-//                       strokeWidth={2}
-//                       className="w-4 h-4 text-red-500"
-//                       viewBox="0 0 24 24"
-//                     >
-//                       <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-//                     </svg>
-//                     <svg
-//                       fill="currentColor"
-//                       stroke="currentColor"
-//                       strokeLinecap="round"
-//                       strokeLinejoin="round"
-//                       strokeWidth={2}
-//                       className="w-4 h-4 text-red-500"
-//                       viewBox="0 0 24 24"
-//                     >
-//                       <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-//                     </svg>
-//                     <svg
-//                       fill="currentColor"
-//                       stroke="currentColor"
-//                       strokeLinecap="round"
-//                       strokeLinejoin="round"
-//                       strokeWidth={2}
-//                       className="w-4 h-4 text-red-500"
-//                       viewBox="0 0 24 24"
-//                     >
-//                       <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-//                     </svg>
-//                     <svg
-//                       fill="currentColor"
-//                       stroke="currentColor"
-//                       strokeLinecap="round"
-//                       strokeLinejoin="round"
-//                       strokeWidth={2}
-//                       className="w-4 h-4 text-red-500"
-//                       viewBox="0 0 24 24"
-//                     >
-//                       <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-//                     </svg>
-//                     <svg
-//                       fill="currentColor"
-//                       stroke="currentColor"
-//                       strokeLinecap="round"
-//                       strokeLinejoin="round"
-//                       strokeWidth={2}
-//                       className="w-4 h-4 text-red-500"
-//                       viewBox="0 0 24 24"
-//                     >
-//                       <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-//                     </svg>
-//                     <span className="text-gray-600 ml-3">4 Reviews</span>
-//                   </span>
-//                 </div>
-//                 <p className="leading-relaxed">
-//                   Fam locavore kickstarter distillery. Mixtape chillwave tumeric
-//                   sriracha taximy chia microdosing tilde DIY. XOXO fam indxgo
-//                   juiceramps cornhole raw denim forage brooklyn. Everyday carry
-//                   +1 seitan poutine tumeric. Gastropub blue bottle austin
-//                   listicle pour-over, neutra jean shorts keytar banjo tattooed
-//                   umami cardigan.
-//                 </p>
-//                 <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
-//                   <span className="mr-3">Quantity: </span>
-//                   <div className="flex border border-gray-300 rounded overflow-hidden">
-//                     <button
-//                       className="w-10 h-full px-2 py-1 bg-gray-200"
-//                       //   onClick={() => decrementQuantity()}
-//                     >
-//                       -
-//                     </button>
-//                     <input
-//                       type="number"
-//                       className="w-16 h-full text-center bg-white"
-//                       inputMode="numeric"
-//                       //   value={quantity}
-//                       //   onChange={(e) => setQuantity(e.target.value)}
-//                     />
-//                     <button
-//                       className="w-10 h-full px-2 py-1 bg-gray-200"
-//                       //   onClick={() => incrementQuantity()}
-//                     >
-//                       +
-//                     </button>
-//                   </div>
-//                   <div className="flex ml-6 items-center">
-//                     <span className="mr-3">Size:</span>
-//                     <div className="flex-col">
-//                       <button className="px-3 py-2 mr-2 border rounded focus:outline-none">
-//                         S
-//                       </button>
-//                       <button className="px-3 py-2 mr-2 border rounded focus:outline-none">
-//                         M
-//                       </button>
-//                       <button className="px-3 py-2 mr-2 border rounded focus:outline-none">
-//                         L
-//                       </button>
-//                       <button className="px-3 py-2 border rounded focus:outline-none">
-//                         XL
-//                       </button>
-//                     </div>
-//                   </div>
-//                 </div>
-//                 <div className="flex">
-//                   <span className="title-font font-medium text-xl line-through text-gray-900">
-//                     IDR Harga
-//                   </span>
-//                   <span
-//                     className="title-font font-medium text-xl text-red-600 ml-3"
-//                   >
-//                     IDR Harga Diskon
-//                   </span>
-//                   <button className="flex ml-auto text-white bg-[#50325E] hover:bg-[#6779BA]  border-0 py-2 px-6 focus:outline-nonerounded rounded transition duration-500 ease-in-out">
-//                     Add To Cart
-//                   </button>
-//                   <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
-//                     <svg
-//                       fill="currentColor"
-//                       strokeLinecap="round"
-//                       strokeLinejoin="round"
-//                       strokeWidth={2}
-//                       className="w-5 h-5"
-//                       viewBox="0 0 24 24"
-//                     >
-//                       <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
-//                     </svg>
-//                   </button>
-//                 </div>
-//               </div>
-//             </div>
-//           </div>
-//         </section>
-//       </div>
-//               </div>
-//             </div>
-//             <div className="flex justify-center mt-4 space-x-4">
-//                 <div
-//                   className="w-16 h-16 relative cursor-pointer"
-//                 >
-//                   <Image
-//                     src=""
-//                     alt="apalah"
-//                     layout="fill"
-//                     objectFit="cover"
-//                     className="rounded"
-//                   />
-//                 </div>
-//             </div>
-//           </div>
-//         </section>
-//       </div>
-//     </>
-//   );
-// }
+import { Product } from "@/db/types";
+import type { Metadata, ResolvingMetadata } from 'next'
+ 
+type Props = {
+  params: { slug: string }
+}
+ 
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const slug = params.slug
+ 
+  const product = await fetchData(slug)
+  
+ 
+  const previousImages = (await parent).openGraph?.images || []
+ 
+  return {
+    title: product.data.name,
+    openGraph: {
+      images: [product.data.thumbnail, ...previousImages],
+    },
+  }
+}
+
+async function fetchData(slug: string) {
+  const response = await fetch(`http://localhost:3000/api/products/${slug}`);
+  const data = await response.json();
+  return data;
+}
+
+
+export default async function DetailProduct({params,}: {params: { slug: string };}) {
+
+  const product: { data: Product } = await fetchData(params.slug);
+  return (
+    product && (
+      <div className="bg-white">
+        <div className="flex items-center justify-center navbar bg-black border-b border-neutral space-x-2">
+          <p className="font-semibold text-white">Ayo Pesan</p>
+          <img src="/send.png" style={{ width: 40, height: 40 }} />
+          <p className="font-semibold text-white">Pesan Antar</p>
+          <img src="/kfcnav.png" style={{ width: 40, height: 40 }} />
+          <p className="font-semibold text-white">atau Bawa Pulang</p>
+          <button className="btn bg-red-600 rounded-3xl text-white">
+            Mulai Order
+          </button>
+        </div>
+        <div className="flex flex-row p-4 items-center justify-center">
+          <img src={product?.data.images[0]} style={{ width: 800, height: 800 }} />
+          <div className="sticky flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+            <img src="/merah.png" style={{ width: 50, height: 30 }} />
+            <div className="p-6">
+              <h5 className="mb-2 block font-sans text-xl font-bold leading-snug tracking-normal text-black antialiased">
+                {product?.data.name}
+              </h5>
+              <p className="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
+                {product?.data.description}
+              </p>
+            </div>
+            <button
+              className="select-none rounded-lg bg-pink-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+              type="button"
+              data-ripple-light="true"
+            >
+              Add to Wish List
+            </button>
+            <div className="p-6 pt-0"></div>
+          </div>
+        </div>
+      </div>
+    )
+  );
+}
