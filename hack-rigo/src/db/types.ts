@@ -29,3 +29,9 @@ export interface Wishlist {
   createdAt: Date;
   updatedAt: Date;
 }
+
+export interface Payload {
+  _id : string;
+  email: string;
+  iat: string;
+}

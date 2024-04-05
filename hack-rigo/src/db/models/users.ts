@@ -39,17 +39,34 @@ export default class UserModel {
     return database.collection<User>("users");
   }
 
+  static async findUserByUsername(username: string) {
+    const user = await this.userCollection().findOne({ username });
+    return user;
+  }
+
+  static async findUserByEmail(email: string) {
+    const user = await this.userCollection().findOne({ email });
+    return user;
+  }
+
   static async createUser(userData: User): Promise<User> {
     try {
       const collection = this.userCollection();
+
+      const checkUsername = await this.findUserByUsername(userData.username);
+      if (checkUsername) throw new Error("Username already exists");
+
+      const checkEmail = await this.findUserByEmail(userData.email);
+      if (checkEmail) throw new Error("Email already exists");
+
       userData.password = hashPassword(userData.password);
       const result = await collection.insertOne(userData);
 
       return {
-        ...userData,
+        ...userData, _id: result.insertedId
       };
     } catch (error: any) {
-      throw new Error("Failed to create user: " + error.message);
+      throw new Error(error.message);
     }
   }
 }
