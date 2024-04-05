@@ -6,10 +6,11 @@ export async function POST(request: Request) {
         const body = await request.json()
         const parsedData = UserValidation.safeParse(body)
 
+        console.log(body, "<<< INI REQ BOD")
         if(parsedData.success === false){
             throw parsedData.error
         }
-
+        
         const newUser = await UserModel.createUser(body)
 
         return Response.json(

@@ -1,8 +1,47 @@
+import { ClientFlashComponent } from "@/components/ClientFlash";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import { redirect } from "next/navigation";
 import React from "react";
+import Swal from "sweetalert2";
 
-function Login() {
+export async function Login() {
+  const handleRegisterAction = async (formData: FormData) => {
+    "use server";
+    const rawFormData = {
+      username: formData.get("username"),
+      name: formData.get("name"),
+      email: formData.get("email"),
+      password: formData.get("password"),
+    };
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/users/register`,
+      {
+        cache: "no-store",
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(rawFormData),
+      }
+    );
+
+    const result = await response.json();
+
+    if (!response.ok) {
+      return redirect(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/account/login?error=${result.message}`
+      );
+    }
+
+    Swal.fire({
+      title: 'Succes Create Account',
+      text: 'Do you want to login ?',
+      icon: 'success',
+      confirmButtonText: "Let's Go"
+    })
+  };
+
   return (
     <>
       <div className="bg-white">
@@ -15,6 +54,9 @@ function Login() {
             <h1 className="text-3xl font-medium text-black mb-2 text-start pt-14">
               SIGN IN
             </h1>
+            <div className="my-5 px-32">
+                <ClientFlashComponent />
+              </div>
           </div>
           <div className="flex justify-center items-center h-screen">
             {/* Bagian Login */}
@@ -32,13 +74,13 @@ function Login() {
                       htmlFor="name"
                       className="block text-gray-800 font-bold"
                     >
-                      Name:
+                      Email:
                     </label>
                     <input
                       type="text"
-                      name="name"
-                      id="name"
-                      placeholder="name"
+                      name="email"
+                      id="email"
+                      placeholder="@email"
                       className="w-full border border-gray-300 py-2 pl-3 rounded mt-2 outline-none bg-white text-black focus:ring-indigo-600 :ring-indigo-600"
                     />
                   </div>
@@ -47,13 +89,13 @@ function Login() {
                       htmlFor="email"
                       className="block text-gray-800 font-bold"
                     >
-                      Email:
+                      Password:
                     </label>
                     <input
-                      type="text"
-                      name="email"
-                      id="email"
-                      placeholder="@email"
+                      type="password"
+                      name="password"
+                      id="password"
+                      placeholder="password"
                       className="w-full border border-gray-300 py-2 pl-3 rounded mt-2 outline-none bg-white text-black focus:ring-indigo-600 :ring-indigo-600"
                     />
                   </div>
@@ -71,20 +113,20 @@ function Login() {
               </h2>
 
               {/* Form register */}
-              <form action="">
+              <form action={handleRegisterAction}>
                 <div className="mb-6 flex">
                   <div className="w-1/2 mr-2">
                     <label
                       htmlFor="name"
                       className="block text-gray-800 font-bold"
                     >
-                      First Name:
+                      Username:
                     </label>
                     <input
                       type="text"
-                      name="name"
-                      id="name"
-                      placeholder="firstname"
+                      name="username"
+                      id="username"
+                      placeholder="username"
                       className="w-full border border-gray-300 py-2 pl-3 rounded mt-2 outline-none bg-white text-black focus:ring-indigo-600 :ring-indigo-600"
                     />
                   </div>
@@ -93,13 +135,13 @@ function Login() {
                       htmlFor="name"
                       className="block text-gray-800 font-bold"
                     >
-                      Last Name:
+                      Name:
                     </label>
                     <input
                       type="text"
                       name="name"
                       id="name"
-                      placeholder="lastname"
+                      placeholder="name"
                       className="w-full border border-gray-300 py-2 pl-3 rounded mt-2 outline-none bg-white text-black focus:ring-indigo-600 :ring-indigo-600"
                     />
                   </div>
@@ -113,8 +155,8 @@ function Login() {
                   </label>
                   <input
                     type="text"
-                    name="name"
-                    id="name"
+                    name="email"
+                    id="email"
                     placeholder="@email"
                     className="w-full border border-gray-300 py-2 pl-3 rounded mt-2 outline-none bg-white text-black focus:ring-indigo-600 :ring-indigo-600"
                   />
@@ -127,9 +169,9 @@ function Login() {
                     Your Password:
                   </label>
                   <input
-                    type="text"
-                    name="email"
-                    id="email"
+                    type="password"
+                    name="password"
+                    id="password"
                     placeholder="password"
                     className="w-full border border-gray-300 py-2 pl-3 rounded mt-2 outline-none bg-white text-black focus:ring-indigo-600 :ring-indigo-600"
                   />
