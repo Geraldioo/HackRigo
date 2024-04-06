@@ -26,8 +26,11 @@ export default function CardProducts({ product }: { product: Product }) {
 
       console.log(response, "<<< INI RESPONSE >>>");
 
+      if (response.status === 401) {
+        window.location.href = "/account/login";
+      }
       if (!response.ok) {
-        throw new Error("Failed to add item to wishlist, Please Login First");
+        throw new Error("Failed to add item to wishlist");
       }
 
       const result = await response.json();
@@ -37,6 +40,8 @@ export default function CardProducts({ product }: { product: Product }) {
       });
       setAddedToWishlist(true);
     } catch (error: any) {
+      console.log(error, "<<< INI ERROR DI CARD");
+
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -73,7 +78,7 @@ export default function CardProducts({ product }: { product: Product }) {
               {product.name}
             </div>
             <div className="text-md mt-1 font-light font-serif text-red-600">
-              Rp. {product.price}
+              Rp. {product.price.toLocaleString("id-ID")}
             </div>
           </div>
         </div>

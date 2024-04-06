@@ -184,7 +184,7 @@ export default async function ProductDetailPage({
                     </div>
                     <div className="flex">
                       <span className="title-font font-medium text-xl text-red-600 ml-3">
-                        Rp. {product.data.price}
+                      Rp. {product.data.price.toLocaleString("id-ID")}
                       </span>
                       <Link
                         href={"/products"}

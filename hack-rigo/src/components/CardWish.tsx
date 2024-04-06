@@ -83,7 +83,7 @@ export default function CardWish({
           </figure>
           <div className="card-body items-center text-center">
             <p className="text-black text-md">{product.name}</p>
-            <p className="text-lg text-orange-600">Rp. {product.price}</p>
+            <p className="text-lg text-orange-600">Rp. {product.price.toLocaleString("id-ID")}</p>
           </div>
         </div>
       </div>

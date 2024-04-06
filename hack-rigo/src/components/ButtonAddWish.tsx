@@ -23,9 +23,13 @@ export default function AddWishlist({product} : {product: Product}) {
           );
     
           console.log(response, "<<< INI RESPONSE >>>");
+
+          if (response.status === 401) {
+            window.location.href = "/account/login";
+          }
     
           if (!response.ok) {
-            throw new Error("Failed to add item to wishlist, Please Login First");
+            throw new Error("Failed to add item to wishlist");
           }
     
           const result = await response.json();
