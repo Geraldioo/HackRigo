@@ -1,7 +1,53 @@
+"use client"
 import CardWish from "@/components/CardWish";
+import { Wishlist } from "@/db/types";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function WishlistsPage() {
+  const [wishlist, setWishlist] = useState<Wishlist[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/wishlist`,
+        {
+          method: "GET",
+          cache: "no-store",
+          headers: {
+            "Content-Type": "application/json"
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch wishlist items");
+      }
+
+      const data = await response.json();
+
+      setWishlist(data);
+    } catch (error) {
+      console.error("Error fetching wishlist items:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen bg-white">
+        <span className="loading loading-bars loading-lg"></span>
+      </div>
+    );
+  }
+  console.log(wishlist, "<<< WISHLIST >>>");
+  
   return (
     <>
       <div className=" dark:bg-white w-full">
