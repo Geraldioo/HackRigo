@@ -1,10 +1,14 @@
-"use client"
+"use client";
 import { Product } from "@/db/types";
+import { redirect } from "next/dist/server/api-utils";
 import Link from "next/link";
-import { FaRegHeart } from "react-icons/fa";
+import { useState } from "react";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
 import Swal from "sweetalert2";
 
 export default function CardProducts({ product }: { product: Product }) {
+  const [addedToWishlist, setAddedToWishlist] = useState(false);
+
   const handleAddToWishlist = async () => {
     console.log(product, "<<< PRODUCT");
 
@@ -31,6 +35,7 @@ export default function CardProducts({ product }: { product: Product }) {
         icon: "success",
         text: result.message,
       });
+      setAddedToWishlist(true);
     } catch (error: any) {
       Swal.fire({
         icon: "error",
@@ -42,8 +47,18 @@ export default function CardProducts({ product }: { product: Product }) {
   };
 
   return (
-    <Link href={`/products/${product.slug}`}>
-      <div className="flex justify-center py-6 hover:rounded-md hover:shadow-2xl relative">
+    <div className="flex justify-center py-6 hover:rounded-md hover:shadow-2xl relative">
+      <div className="absolute top-2 right-2 z-10">
+        {/* Heart Icon */}
+        <button className="focus:outline-none" onClick={handleAddToWishlist}>
+          {addedToWishlist ? (
+            <FaHeart className="text-red-500 text-xl mx-3 my-5" />
+          ) : (
+            <FaRegHeart className="text-black text-xl mx-3 my-5" />
+          )}
+        </button>
+      </div>
+      <Link href={`/products/${product.slug}`}>
         {/* Image Container */}
         <div className="w-56">
           <img
@@ -52,15 +67,6 @@ export default function CardProducts({ product }: { product: Product }) {
             className="h-72 object-cover"
           />
           {/* Overlay for Heart Icon */}
-          <div className="absolute top-2 right-2 z-10">
-            {/* Heart Icon */}
-            <button
-              className="focus:outline-none"
-              onClick={handleAddToWishlist}
-            >
-              <FaRegHeart className="text-black text-xl mx-3 my-5" />
-            </button>
-          </div>
           {/* Product Details */}
           <div className="p-2 flex flex-col bg-white">
             <div className="text-sm font-light font-serif text-gray-600">
@@ -71,7 +77,7 @@ export default function CardProducts({ product }: { product: Product }) {
             </div>
           </div>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 }

@@ -11,7 +11,7 @@ export default function WishlistsPage() {
   const fetchData = async () => {
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/wishlist`,
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/wishlists`,
         {
           method: "GET",
           cache: "no-store",
@@ -66,13 +66,14 @@ export default function WishlistsPage() {
           </div>
         </div>
         <div className="grid justify-center dark:bg-white grid-cols-3 mx-24">
-          <CardWish />
-          <CardWish />
-          <CardWish />
-          <CardWish />
-          <CardWish />
-          <CardWish />
-          <CardWish />
+          {wishlist &&
+            wishlist.map((item, key) => (
+              <CardWish
+                key={key}
+                product={item.productDetails}
+                id={item._id.toString()}
+              />
+            ))}
         </div>
       </div>
     </>

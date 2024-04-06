@@ -1,4 +1,8 @@
-export default function CardWish() {
+import { Product } from "@/db/types";
+
+export default function CardWish({product, id} : {product: Product, id: string}) {
+
+  
   return (
     <>
       <div className="relative flex justify-center">
@@ -21,16 +25,16 @@ export default function CardWish() {
           </button>
           <figure className="pt-10 ">
             <img
-              src="https://erigostore.co.id/cdn/shop/files/6afbc72719cce761ec852eb3e61bb163_720x.jpg?v=1684515011"
+              src={product.thumbnail}
               alt="Shoes"
               className="rounded-xl w-full transition-transform transform hover:scale-110"
             />
           </figure>
           <div className="card-body items-center text-center">
             <p className="text-black text-md">
-              Erigo Koko Short Sleeve Bordir Zachary White
+              {product.name}
             </p>
-            <p className="text-lg text-orange-600">Rp. 60.000</p>
+            <p className="text-lg text-orange-600">Rp. {product.price}</p>
           </div>
         </div>
       </div>

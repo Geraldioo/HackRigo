@@ -26,6 +26,7 @@ export interface Wishlist {
   _id: ObjectId;
   userId: ObjectId; // validation: required
   productId: ObjectId; // validation: required
+  productDetails: Product;
   createdAt: Date;
   updatedAt: Date;
 }
