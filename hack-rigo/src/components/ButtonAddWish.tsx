@@ -25,7 +25,7 @@ export default function AddWishlist({product} : {product: Product}) {
           console.log(response, "<<< INI RESPONSE >>>");
     
           if (!response.ok) {
-            throw new Error("Failed to add item to wishlist");
+            throw new Error("Failed to add item to wishlist, Please Login First");
           }
     
           const result = await response.json();

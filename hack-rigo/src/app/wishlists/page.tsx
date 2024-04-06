@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import CardWish from "@/components/CardWish";
 import { Wishlist } from "@/db/types";
 import Link from "next/link";
@@ -16,7 +16,7 @@ export default function WishlistsPage() {
           method: "GET",
           cache: "no-store",
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
           },
         }
       );
@@ -47,10 +47,10 @@ export default function WishlistsPage() {
     );
   }
   console.log(wishlist, "<<< WISHLIST >>>");
-  
+
   return (
     <>
-      <div className=" dark:bg-white w-full">
+      <div className="dark:bg-white w-full">
         <div className="mx-28">
           <div>
             <h1 className="text-md text-start pt-10">
@@ -65,16 +65,21 @@ export default function WishlistsPage() {
             <div className="divider divider-neutral"></div>
           </div>
         </div>
-        <div className="grid justify-center dark:bg-white grid-cols-3 mx-24">
-          {wishlist &&
-            wishlist.map((item, key) => (
+        {wishlist.length === 0 ? (
+          <p className=" mt-24 text-2xl font-sans flex justify-center text-black">
+            Your Wishlist is Still Empty..
+          </p>
+        ) : (
+          <div className="grid justify-center dark:bg-white grid-cols-3 mx-24">
+            {wishlist.map((item, key) => (
               <CardWish
                 key={key}
                 product={item.productDetails}
                 id={item._id.toString()}
               />
             ))}
-        </div>
+          </div>
+        )}
       </div>
     </>
   );

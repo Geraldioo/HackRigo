@@ -49,8 +49,6 @@ export const GET = async (request: Request): Promise<Response | NextResponse> =>
                 status : 404
             })
         }
-        // const body = await request.json();
-        // const { productId } = body; 
 
         const getWishlist = await WishlistModel.showWishlist(userId);
 
@@ -80,7 +78,9 @@ export const DELETE = async (request: Request) => {
         }
 
         const body = await request.json();
-        const {_id } = body
+        const { _id } = body
+        console.log(body, "<<INI REQ BOYD");
+        
         const deleteWishlist = await WishlistModel.deleteWishlist(_id)
 
         return NextResponse.json({
