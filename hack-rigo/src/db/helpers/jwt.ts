@@ -1,5 +1,5 @@
 import jwt, { JwtPayload } from "jsonwebtoken"
-import * as jose from 'jose'
+import * as jose from "jose"
 
 const secret = process.env.JWT_SECRET as string
 

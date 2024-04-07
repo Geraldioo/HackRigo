@@ -2,7 +2,7 @@ import { handleLoginAction, handleRegisterAction } from "@/app/actions/user";
 import { ClientFlashComponent } from "@/components/ClientFlash";
 import React from "react";
 
-export async function Login() {
+export default async function Login() {
   return (
     <>
       <div className="bg-white">
@@ -147,4 +147,3 @@ export async function Login() {
   );
 }
 
-export default Login;

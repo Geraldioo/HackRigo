@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { MdSearch } from "react-icons/md";
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+import InfiniteScroll from "react-infinite-scroll-component";
 
 interface ArrayOfProduct {
   data: Product[];
@@ -13,6 +14,8 @@ interface ArrayOfProduct {
 export default function Home() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
   const [search, setSearch] = useState<string>("");
   const [searchProduct, setSearchProduct] = useState<Product[]>([]);
   let query = search.replaceAll(" ", "%20");
@@ -28,17 +31,27 @@ export default function Home() {
     setSearchProduct(((await response.json()) as ArrayOfProduct).data);
   }
 
-  const fetchData = async () => {
+  const fetchData = async (pageNumber: number) => {
     setLoading(true);
     try {
-      const response = await fetch(`${BASE_URL}/api/products`, {
-        cache: "no-store",
-      });
+      const response = await fetch(
+        `http://localhost:3000/api/products?page=${pageNumber}&search=${search}`,
+        {
+          cache: "no-store",
+        }
+      );
+      const newData = await response.json();
+
+      console.log(newData, "INI RES NEW DATA <<<>>>>");
+      
 
       if (!response.ok) throw new Error();
 
-      const responseJson = await response.json();
-      setProducts(responseJson.data);
+      setProducts(products.concat(newData.data));
+      setHasMore(newData.data.length > 0);
+      setLoading(false);
+
+      
     } catch (error: any) {
       console.log(error, "<< ERR DI PRODUCTS");
     } finally {
@@ -46,9 +59,27 @@ export default function Home() {
     }
   };
 
+  // Function to handle infinite scroll
+  function handleScroll() {
+    if (
+      !loading &&
+      hasMore &&
+      window.innerHeight + document.documentElement.scrollTop >=
+        document.documentElement.offsetHeight - 100
+    ) {
+      setLoading(true);
+      setPage(page + 1);
+    }
+  }
+
   useEffect(() => {
-    fetchData();
-  }, []);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [loading, hasMore]);
+
+  useEffect(() => {
+    fetchData(page);
+  }, [page]);
 
   useEffect(() => {
     if (search) {
@@ -65,6 +96,9 @@ export default function Home() {
       </div>
     );
   }
+
+  console.log(products, "<<< INI PRODUCTSS");
+  
 
   return (
     <>

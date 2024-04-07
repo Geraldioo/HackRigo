@@ -5,6 +5,8 @@ import { Carousel } from "@/components/Carousel";
 import { Product } from "@/db/types";
 import Link from "next/link";
 
+export const dynamic = 'force-dynamic'
+
 async function fetchData() {
   const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/home`, {
     cache: "no-store",
@@ -25,9 +27,6 @@ export default async function Home() {
       <div className="divider divider-neutral mx-40"></div>
       <h1 className="uppercase text-center text-black text-lg font-extrabold">
         New Arrivals
-      </h1>
-      <h1 className="link mt-2 text-center text-black text-xs">
-        View All Products
       </h1>
       <div className="grid justify-center dark:bg-white grid-cols-3 mx-40">
         {products.map((product, index) => (

@@ -1,8 +1,7 @@
-import { Wishlist } from "@/db/types"
+import { Wishlist } from "@/db/types";
 import { database } from "../config/config";
 import { z } from "zod";
 import { ObjectId } from "mongodb";
-
 
 const WishlistValidation = z.object({
   userId: z.string({
@@ -15,7 +14,7 @@ const WishlistValidation = z.object({
 
 export default class WishlistModel {
   static wishlistCollection() {
-    return database.collection<Wishlist>("wishlists");
+    return database.collection("wishlists");
   }
 
   static async getWishlist(userId: string, productId: string) {
@@ -35,8 +34,7 @@ export default class WishlistModel {
     if (validate) {
       throw new Error("Thist Prodcut Already in Wishlist");
     } else {
-      const newWishlist: Wishlist = {
-        _id: new ObjectId(),
+      const newWishlist = {
         userId: new ObjectId(userId),
         productId: new ObjectId(productId),
         createdAt: new Date(),

@@ -43,12 +43,11 @@ export const handleLoginAction = async (formData: FormData) => {
     email: formData.get("email"),
     password: formData.get("password"),
   };
-
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/users/login`,
     {
       cache: "no-store",
-      method: "POST",
+      method: "POST", 
       headers: {
         "Content-Type": "application/json",
       },
@@ -71,5 +70,5 @@ export const handleLoginAction = async (formData: FormData) => {
   //   `${process.env.NEXT_PUBLIC_BASE_URL}/?succesed=registered`
   // );
 
-    return redirect("/")
+ redirect("/")
 };

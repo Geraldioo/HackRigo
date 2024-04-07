@@ -26,6 +26,25 @@ export default class ProductModel {
     return data
   }
 
+  
+  static async findAndSortAll(page: number, pageSize: number = 9): Promise<Product[]> {
+    try {
+      const skipValue = (page - 1) * pageSize;
+      
+      const result = await this.productCollection().find()
+        .skip(skipValue)
+        .limit(pageSize)
+        .toArray();
+      
+        // console.log(result, "hasil tanpa search");
+        
+      return result;
+    } catch (error) {
+      console.error("Error fetching and sorting products:", error);
+      throw error;
+    }
+  }
+
   static async getFeaturedProducts() {
     const data = await this.getAllProducts()
     const featured = data.slice(0, 6)
