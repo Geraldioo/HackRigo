@@ -1,10 +1,7 @@
-"use client";
-
 import Card from "@/components/Card";
 import { Carousel } from "@/components/Carousel";
 import { Product } from "@/db/types";
 import Link from "next/link";
-
 export const dynamic = 'force-dynamic'
 
 async function fetchData() {

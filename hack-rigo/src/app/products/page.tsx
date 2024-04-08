@@ -35,7 +35,7 @@ export default function Home() {
     setLoading(true);
     try {
       const response = await fetch(
-        `http://localhost:3000/api/products?page=${pageNumber}&search=${search}`,
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/products?page=${pageNumber}&search=${search}`,
         {
           cache: "no-store",
         }

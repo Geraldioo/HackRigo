@@ -78,7 +78,7 @@ export default function CardProducts({ product }: { product: Product }) {
               {product.name}
             </div>
             <div className="text-md mt-1 font-light font-serif text-red-600">
-              Rp. {product.price}
+              Rp. {product.price.toLocaleString("id-ID")}
             </div>
           </div>
         </div>
